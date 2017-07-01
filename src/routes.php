@@ -19,6 +19,8 @@ $app->get('/forecast/[{zipCode}]', function ($request, $response, $args) {
     
     $response
         ->withHeader('Access-Control-Allow-Origin', 'http://weatherapp.trucoding.com')
+        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
         ->getBody()->write("$data");
 
     return $response;
